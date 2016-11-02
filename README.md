@@ -52,3 +52,5 @@ public class UserAction {
 	@Resource
 	private UserService userService;
 这是进一步改进的注解方式——————————————————————————————
+
+还有一点：关于创建bean的时候，多例，单例，初始化，撤销等的理解
