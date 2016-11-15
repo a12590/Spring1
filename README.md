@@ -2,7 +2,7 @@
 理解Spring依赖注入的方式
 ——————————————————————————————————————————————————————————————
 1，注解方式
-dao层
+dao层(试试换了位置的commit效果)
 // 把当前对象加入ioc容器
 @Component("userDao")   //  相当于bean.xml 【<bean id=userDao class=".." />】
 service层
