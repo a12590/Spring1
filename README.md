@@ -81,30 +81,30 @@
 
 
  
-> ——————————————————————————————————————————————————
- # dao
- 
-	// 把当前对象加入ioc容器
-	//@Component("userDao")   //  相当于bean.xml 【<bean id=userDao class=".." />】
+## 补充
+	 # dao
 
-	//@Component  // 加入ioc容器的UserDao对象的引用名称， 默认与类名一样， 且第一个字母小写
+		// 把当前对象加入ioc容器
+		//@Component("userDao")   //  相当于bean.xml 【<bean id=userDao class=".." />】
 
-	//@Repository   // 在持久层可以选择用这个注解
-	@Repository(value=”userDao”)注解是告诉Spring，让Spring创建一个名字叫“userDao”的UserDao实例。
-# service
-	@Service   // 表示业务逻辑层的组件
-	public class UserService {
+		//@Component  // 加入ioc容器的UserDao对象的引用名称， 默认与类名一样， 且第一个字母小写
 
-	//	@Resource					//  根据类型查找 【在容器中要确保该类型只有一个变量】
+		//@Repository   // 在持久层可以选择用这个注解
+		@Repository(value=”userDao”)注解是告诉Spring，让Spring创建一个名字叫“userDao”的UserDao实例。
+	# service
+		@Service   // 表示业务逻辑层的组件
+		public class UserService {
 
-		@Resource(name = "userDao")  // 根据名称查找
-		private UserDao userDao;  // 去容器中招UserDao类型的变量，找到后就赋值
-# Controller
-	@Controller  // 控制层的组件
-	public class UserAction {
+		//	@Resource					//  根据类型查找 【在容器中要确保该类型只有一个变量】
 
-		@Resource
-		private UserService userService;
+			@Resource(name = "userDao")  // 根据名称查找
+			private UserDao userDao;  // 去容器中招UserDao类型的变量，找到后就赋值
+	# Controller
+		@Controller  // 控制层的组件
+		public class UserAction {
+
+			@Resource
+			private UserService userService;
 
 
-# 还有一点：关于创建bean的时候，多例，单例，初始化，撤销等的理解
+	# 还有一点：关于创建bean的时候，多例，单例，初始化，撤销等的理解
