@@ -3,6 +3,7 @@
 ## IoC是什么
 > 当有了IoC/DI的容器后，在客户端类中不再主动去创建这些对象了
 > 由IoC容器帮对象找相应的依赖对象并注入，而不是由对象主动去找。
+
 ## DI是什么
 
 # Spring配置的可选方案
@@ -63,8 +64,8 @@
 		}
 	}
 
-# dao 这里只是测试，不写dao层
-# 测试
+# dao 这里只test，不写dao层
+# test
 	@RunWith(SpringJUnit4ClassRunner.class)
 	@ContextConfiguration({"classpath:spring/applicationContext.xml"})
 	public class UserConTrollerTest {
@@ -80,7 +81,7 @@
 
 
  
- 
+> ——————————————————————————————————————————————————
  # dao
  
 	// 把当前对象加入ioc容器
