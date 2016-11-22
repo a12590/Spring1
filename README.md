@@ -45,38 +45,38 @@
 <mvc:annotation-driven />
 	自动装配（autowiring）：Spring自动满足bean之间的依赖
 # Controller action
-@Controller
-public class UserController{
-    @Autowired
-	UserService userService;
-}
+	@Controller
+	public class UserController{
+	    @Autowired
+		UserService userService;
+	}
 
 # service
-public interface UserService {
-	public void addUser() throws Exception;
-}
-@Service("userService")
-public class UserServiceImpl implements UserService{
-@Override
-	public void addUser() throws Exception {
-		System.out.println("新增用户");
+	public interface UserService {
+		public void addUser() throws Exception;
 	}
-}
+	@Service("userService")
+	public class UserServiceImpl implements UserService{
+	@Override
+		public void addUser() throws Exception {
+			System.out.println("新增用户");
+		}
+	}
 
 # dao 这里只是测试，不写dao层
 # 测试
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/applicationContext.xml"})
-public class UserConTrollerTest {
-	@Autowired
-	UserService userService;
-	
-	@Test
-	public void checkServiceIsNull(){
-		Assert.assertNotNull(userService);
+	@RunWith(SpringJUnit4ClassRunner.class)
+	@ContextConfiguration({"classpath:spring/applicationContext.xml"})
+	public class UserConTrollerTest {
+		@Autowired
+		UserService userService;
+
+		@Test
+		public void checkServiceIsNull(){
+			Assert.assertNotNull(userService);
+		}
 	}
-}
-UserConTrollerTest使用了Spring的SpringJUnit4ClassRunner，以便在测试开始的时候自动创建Spring的应用上下文，注解@ContextConfiguration会告诉它需要在UserConTrollerTest中加载配置。所以读取applicationContext.xml配置文件，配置文件里面有这个启用自动扫描的元素。
+	UserConTrollerTest使用了Spring的SpringJUnit4ClassRunner，以便在测试开始的时候自动创建Spring的应用上下文，注解@ContextConfiguration会告诉它需要在UserConTrollerTest中加载配置。所以读取applicationContext.xml配置文件，配置文件里面有这个启用自动扫描的元素。
 
 
  
